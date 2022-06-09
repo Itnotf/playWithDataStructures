@@ -5,11 +5,11 @@ import (
 	linkedList "playWithDataStructures/LinkedList"
 )
 
-type linkedListQueue[T any] struct {
+type linkedListQueue[T comparable] struct {
 	data *linkedList.LinkedList[T]
 }
 
-func NewLinkedListQueue[T any]() *linkedListQueue[T] {
+func NewLinkedListQueue[T comparable]() *linkedListQueue[T] {
 	return &linkedListQueue[T]{
 		data: linkedList.NewLinkedList[T](),
 	}

@@ -2,20 +2,19 @@ package linkedList
 
 import (
 	"fmt"
-	"reflect"
 )
 
-type Node[T any] struct {
+type Node[T comparable] struct {
 	val  T
 	next *Node[T]
 }
 
-type LinkedList[T any] struct {
+type LinkedList[T comparable] struct {
 	dummyHead *Node[T]
 	size      int
 }
 
-func NewLinkedList[T any]() *LinkedList[T] {
+func NewLinkedList[T comparable]() *LinkedList[T] {
 	return &LinkedList[T]{
 		dummyHead: &Node[T]{},
 		size:      0,
@@ -100,10 +99,22 @@ func (l *LinkedList[T]) Set(index int, e T) {
 	}
 	pre.next.val = e
 }
+func (l *LinkedList[T]) RemoveElement(e T) {
+	pre := l.dummyHead
+	for pre.next != nil {
+		if pre.next.val == e {
+			pre.next = pre.next.next
+			l.size--
+			return
+		}
+		pre = pre.next
+	}
+	panic("no such element")
+}
 func (l *LinkedList[T]) Contains(e T) bool {
 	pre := l.dummyHead
 	for pre.next != nil {
-		if reflect.DeepEqual(pre.next.val, e) {
+		if pre.next.val == e {
 			return true
 		}
 		pre = pre.next

@@ -30,5 +30,10 @@ func TestLinkedList(t *testing.T) {
 	assert.Equal(t, 11, l.RemoveLast())
 	assert.Equal(t, 9, l.Remove(1))
 	assert.Panics(t, func() { l.Remove(100) })
-
+	fmt.Println(l.ToString())
+	l.RemoveElement(2)
+	fmt.Println(l.ToString())
+	l.RemoveElement(22)
+	fmt.Println(l.ToString())
+	assert.Panics(t, func() { l.RemoveElement(100) })
 }
