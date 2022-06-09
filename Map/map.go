@@ -1,11 +1,10 @@
 package Map
 
-type Map[T any] interface {
+type Map[K any, V any] interface {
 	GetSize() int
 	IsEmpty() bool
-	Add(T)
-	Remove(T) T
-	Contains(T)
-	Get(key int)
-	Set(key int)
+	Get(K) V
+	Set(K, V)
+	Contains(V)
+	Remove(K)
 }
