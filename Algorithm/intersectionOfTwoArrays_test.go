@@ -1,4 +1,4 @@
-package playWithDataStructures
+package algorithm
 
 import (
 	"reflect"
