@@ -50,7 +50,7 @@ func (m *MaxHeap[K]) siftUp() {
 	}
 }
 
-func (m *MaxHeap[K]) findMax() K {
+func (m *MaxHeap[K]) FindMax() K {
 	if m.size == 0 {
 		panic("empty heap")
 	}
@@ -58,7 +58,7 @@ func (m *MaxHeap[K]) findMax() K {
 }
 
 func (m *MaxHeap[K]) ExtractMax() K {
-	max := m.findMax()
+	max := m.FindMax()
 
 	m.swap(0, m.size-1)
 	m.data.RemoveLast()
@@ -95,7 +95,7 @@ func (m *MaxHeap[K]) swap(i int, j int) {
 }
 
 func (m *MaxHeap[K]) Replace(e K) K {
-	max := m.findMax()
+	max := m.FindMax()
 
 	m.data.Set(0, e)
 	m.siftDown(0)
