@@ -70,6 +70,7 @@ func (m *MaxHeap) siftDown(index int) {
 		}
 	}
 }
+
 func (m *MaxHeap) Replace(e int) {
 	m.data[0] = e
 	m.siftDown(0)
