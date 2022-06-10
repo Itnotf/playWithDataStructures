@@ -12,4 +12,6 @@ func TestSegmentTree(t *testing.T) {
 	assert.Equal(t, 1, segmentTree.Query(0, 2))
 	assert.Equal(t, -1, segmentTree.Query(2, 5))
 	assert.Equal(t, -3, segmentTree.Query(0, 5))
+	segmentTree.Set(1, 2)
+	assert.Equal(t, -1, segmentTree.Query(0, 5))
 }

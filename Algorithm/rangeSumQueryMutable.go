@@ -58,3 +58,26 @@ func (n *NumArray) sumRange(index int, l int, r int, left int, right int) int {
  * obj := Constructor(nums);
  * param_1 := obj.SumRange(left,right);
  */
+
+func (n *NumArray) Update(index int, val int) {
+	n.data[index] = val
+	n.update(0, 0, len(n.data)-1, index)
+}
+
+func (n *NumArray) update(index int, l int, r int, key int) {
+	if l == r {
+		n.tree[index] = n.data[l]
+		return
+	}
+	mid := l + (r-l)/2
+	leftChild := n.leftChild(index)
+	rightChild := n.rightChild(index)
+
+	if key <= mid {
+		n.update(leftChild, l, mid, key)
+	} else {
+		n.update(rightChild, mid+1, r, key)
+	}
+
+	n.tree[index] = n.tree[leftChild] + n.tree[rightChild]
+}

@@ -11,4 +11,6 @@ func TestNumArray_SumRange(t *testing.T) {
 	assert.Equal(t, 1, obj.SumRange(0, 2))
 	assert.Equal(t, -1, obj.SumRange(2, 5))
 	assert.Equal(t, -3, obj.SumRange(0, 5))
+	obj.Update(1, 2)
+	assert.Equal(t, -1, obj.SumRange(0, 5))
 }

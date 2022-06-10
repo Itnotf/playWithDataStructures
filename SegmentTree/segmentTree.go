@@ -55,3 +55,26 @@ func (s *SegmentTree) query(index int, l int, r int, left int, right int) int {
 	}
 	return s.query(s.leftChild(index), l, mid, left, mid) + s.query(s.rightChild(index), mid+1, r, mid+1, right)
 }
+
+func (s *SegmentTree) Set(key int, value int) {
+	s.data[key] = value
+	s.set(0, 0, len(s.data)-1, key)
+}
+
+func (s *SegmentTree) set(index int, l int, r int, key int) {
+	if l == r {
+		s.tree[index] = s.data[l]
+		return
+	}
+	mid := l + (r-l)/2
+	leftChild := s.leftChild(index)
+	rightChild := s.rightChild(index)
+
+	if key <= mid {
+		s.set(leftChild, l, mid, key)
+	} else {
+		s.set(rightChild, mid+1, r, key)
+	}
+
+	s.tree[index] = s.tree[leftChild] + s.tree[rightChild]
+}
