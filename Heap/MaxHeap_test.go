@@ -1,9 +1,10 @@
 package Heap
 
 import (
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 	array "playWithDataStructures/Array"
-	"testing"
 )
 
 func TestMaxHeap(t *testing.T) {

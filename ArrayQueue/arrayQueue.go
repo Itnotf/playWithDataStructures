@@ -2,7 +2,8 @@ package arrayQueue
 
 import (
 	"fmt"
-	"playWithDataStructures/array"
+
+	"playWithDataStructures/Array"
 )
 
 type ArrayQueue[T any] struct {

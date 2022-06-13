@@ -1,8 +1,9 @@
 package BSTMap
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestBSTMap(t *testing.T) {

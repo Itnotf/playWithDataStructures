@@ -1,8 +1,9 @@
 package algorithm
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMapSum_sum(t1 *testing.T) {

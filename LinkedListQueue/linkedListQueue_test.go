@@ -2,22 +2,23 @@ package linkedListQueue
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLinkedListQueue(t *testing.T) {
 	q := NewLinkedListQueue[int]()
 	q.Enqueue(1)
 	q.Enqueue(2)
-	assert.Equal(t, q.GetFront(), 1)
-	assert.Equal(t, q.GetSize(), 2)
-	assert.Equal(t, q.IsEmpty(), false)
+	assert.Equal(t, 1, q.GetFront())
+	assert.Equal(t, 2, q.GetSize())
+	assert.Equal(t, false, q.IsEmpty())
 	fmt.Println(q.ToString())
 
-	assert.Equal(t, q.Dequeue(), 1)
-	assert.Equal(t, q.Dequeue(), 2)
-	assert.Equal(t, q.IsEmpty(), true)
+	assert.Equal(t, 1, q.Dequeue())
+	assert.Equal(t, 2, q.Dequeue())
+	assert.Equal(t, true, q.IsEmpty())
 	assert.Panics(t, func() { q.Dequeue() })
 	fmt.Println(q.ToString())
 	for i := 3; i < 15; i++ {

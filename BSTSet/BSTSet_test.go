@@ -1,8 +1,9 @@
 package BSTSet
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestBSTSet(t *testing.T) {
