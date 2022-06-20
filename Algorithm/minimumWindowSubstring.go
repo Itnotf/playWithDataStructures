@@ -8,45 +8,33 @@ func minWindow(s string, t string) string {
 
 	for right < len(s) {
 		rightChar := int32(s[right])
-		//right char not in t
-		if need[rightChar] == 0 {
-			right++
-			continue
-		}
-		//right char in t
-		window[rightChar]++
 
-		if window[rightChar] != need[rightChar] {
-			right++
-			continue
-		}
-		count++
-		if count != len(need) {
-			right++
-			continue
+		right++
+		if need[rightChar] > 0 {
+			window[rightChar]++
+			if window[rightChar] == need[rightChar] {
+				count++
+			}
 		}
 
-		//s[left:right+1] contains t
-		for left <= right {
+		for count == len(need) {
 			leftChar := int32(s[left])
-			if need[leftChar] == 0 {
-				left++
-				continue
-			}
-			//[left,right] 是一个子串
-			if minStr == "" || len(minStr) > right-left+1 {
-				minStr = s[left : right+1]
+			if need[leftChar] > 0 {
+				//[left,right] 是一个子串
+				if minStr == "" || len(minStr) > right-left {
+					minStr = s[left:right]
+				}
+
+				window[leftChar]--
+				if window[leftChar] < need[leftChar] {
+					count--
+					left++
+					break
+				}
 			}
 
-			window[leftChar]--
-			if window[leftChar] < need[leftChar] {
-				count--
-				left++
-				break
-			}
 			left++
 		}
-		right++
 	}
 
 	return minStr
