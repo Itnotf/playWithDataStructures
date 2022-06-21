@@ -1,4 +1,4 @@
-package NowCoder
+package HJ1
 
 import (
 	"github.com/stretchr/testify/assert"
