@@ -6,11 +6,11 @@ import (
 	linkedList "playWithDataStructures/LinkedList"
 )
 
-type linkedListStack[T any] struct {
+type linkedListStack[T int | float32] struct {
 	data *linkedList.LinkedList[T]
 }
 
-func NewLinkedListStack[T any]() *linkedListStack[T] {
+func NewLinkedListStack[T int | float32]() *linkedListStack[T] {
 	return &linkedListStack[T]{
 		data: linkedList.NewLinkedList[T](),
 	}
