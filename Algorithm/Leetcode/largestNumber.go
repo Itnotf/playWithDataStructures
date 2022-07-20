@@ -17,6 +17,9 @@ func largestNumber(nums []int) string {
 
 	r := ""
 	for _, str := range numStr {
+		if r == "0" {
+			continue
+		}
 		r += str
 	}
 	return r
